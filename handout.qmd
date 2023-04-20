@@ -1,0 +1,27 @@
+---
+title: "Qualitative Methods for Research in Data Science Education"
+format: docx
+editor: visual
+bibliography: references.bib
+---
+
+## The Block Model [@schulte2008]
+
+|                    | Text Surface                                                              | Program Execution                                                      | Function                                                                                   |
+|:------------------|------------------|------------------|------------------|
+| **Macrostructure** | Understanding the overall structure of the program                        | Understanding the "algorithm" of the program                           | Understanding the goal / purpose of the program (in its context)                           |
+| **Relations**      | References between blocks, e.g., method calls, object creation            | Sequence of method calls, object sequence diagrams                     | Understanding how sub-goals are related to goals, how function is achieved by subfunctions |
+| **Blocks**         | Regions of interest (ROI) that syntactically or semantically build a unit | Operation of a block, a method, or a ROI (as a sequence of statements) | Function of a block, may be seen as a sub-goal                                             |
+| **Atoms**          | Language elements                                                         | Operation of a statement                                               | Function of a statement, only understandable in context                                    |
+
+## Student's Coding Process
+
+| Student A                                                                                              | Student B                                                                                                                                                                                    |
+|------------------------------------|------------------------------------|
+| `plot(EarlyLengthAge$meanLE∼EarlyLengthAge$Age, las = 1, ylab = “Fork Length (mm)”, xlab  = “Age”)`    | `plot(x = predictionTimesD,       y = prediction,       type = “l,       col = “blue”,       xlab = “”,       ylab = “”,       ylim = c(0, 0.08),       main = “Mesocosm D”,       las = 1)` |
+| `lines(EarlyLengthAge$meanLE∼EarlyLengthAge$Age)`                                                      | `points(timed, obsD, pch = 19)`                                                                                                                                                              |
+| `points(MidLengthAge$meanLM∼MidLengthAge$Age, col = "red")`                                            | `title(ylab = expression(paste("Tracer "^15, N[2], ":Ar")), line = 2.5, font.sub = 2)`                                                                                                       |
+| `lines(MidLengthAge$meanLM∼MidLengthAge$Age, col = "red")`                                             | `title(xlab = "Time (days)",       line = 2, font.sub = 2)`                                                                                                                                  |
+| `legend(15, 600, legend = c("1998-2003", "2006-2017"), col = c(“black”, “red”), lty = 1:1, cex = 0.8)` | `legend("bottomright",          legend = c("Modeled", "Measured"),          lty = c("solid", NA),          col = c("blue", "black"),         pch = c(NA, 19))`                               |
+
+## References
