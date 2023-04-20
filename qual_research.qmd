@@ -450,9 +450,12 @@ How can we distinguish merely interesting learning from effective learning [@wig
 Questions?
 :::
 
+<!-- todo: include new image for questions -->
+
 ```{r}
 #| fig-align: center
 #| out-width: 50%
+#| eval: false
 knitr::include_graphics("images/conversation.jpg")
 ```
 
