@@ -1,12 +1,13 @@
 ---
 title: "Coding Code: Investigating Student’s Data Science Skills with Qualitative Methods"
-author: "Dr. Allison Theobold"
+author: "Allison Theobold"
 format: 
   revealjs:
     logo: images/cp_hex_logo.png
     theme: night
     embed-resources: true
     standalone: true
+    auto-stretch: false
 editor: visual
 bibliography: references.bib
 ---
@@ -21,105 +22,7 @@ Today's layout
 
 <!-- todo: outline -->
 
-
 <center><link to slides></center>
-
-##  {background-color="#B6CADA"}
-
-::: {style="font-size: 4em; color: #000000;"}
-Qualitative research
-:::
-
-::: columns
-::: {.column width="60%"}
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="25%"}
-```{r}
-knitr::include_graphics("images/qual-research.png")
-```
-:::
-:::
-
-## 
-
-::: {style="font-size: 1.25em; color: #e28743;"}
-"Qualitative researchers strive to *understand the meaning* people have constructed about their world and their experiences." [@merriam]
-:::
-
-</br>
-
-::: {style="font-size: 1.25em; color: #abdbe3;"}
-"Qualitative research is an effort to understand situations in their uniqueness as part of a particular context and the interactions there. This understanding is an end in itself." [@patton]
-:::
-
-## 
-
-::: {style="font-size: 2em; color: #FFFFFF;"}
-What are the principles of qualitative research?
-:::
-
-. . .
-
-::: columns
-::: {.column width="55%"}
-::: {style="font-size: 0.85em;"}
-</br>
-
--   The researcher is the primary instrument for data collection and data analysis
-
--   The analysis seeks to find emerging themes
-
--   The product of a qualitative study is richly descriptive
-:::
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="40%"}
-![](images/qual_words.png)
-:::
-:::
-
-## 
-
-::: {style="font-size: 2em; color: #FFFFFF;"}
-How might this look?
-:::
-
-</br>
-
-::: columns
-::: {.column width="30%"}
-**Sample Selection**
-
-Select a sample from which the most can be learned!
-:::
-
-::: {.column width="2%"}
-:::
-
-::: {.column width="30%"}
-**Data Collection**
-
-Major sources of data -- interviews, observations, documents
-:::
-
-::: {.column width="2%"}
-:::
-
-::: {.column width="30%"}
-**Data Analysis**
-
-<!-- Simultaneous with data collection! -->
-
-Compare units of data to find common patterns across the data
-:::
-:::
 
 ##  {background-color="#B6CADA"}
 
@@ -144,30 +47,50 @@ knitr::include_graphics("images/code-design.png")
 ## 
 
 ::: {style="font-size: 3em; color: #FFFFFF;"}
-Warm-up (90 seconds)
+What research has been done?
 :::
 
-</br>
-
-<center>
-
-::: {style="font-size: 1.5em; color: #e28743;"}
+::: columns
+::: {.column width="45%"}
+::: {.fragment .fade-in-then-out}
 ```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: false
-RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1]
+#| out-width: 65%
+knitr::include_graphics("images/bluej-icon.png")
 ```
 :::
+:::
 
-</center>
+::: {.column width="10%"}
+:::
 
-. . .
+::: {.column width="45%"}
+::: fragment
+```{r}
+#| out-width: 50%
+knitr::include_graphics("images/code-review.png")
+```
+:::
+:::
+:::
+
+## 
+
+::: {style="font-size: 2em; color: #FFFFFF;"}
+Pairing student code with debugging behavior [@lewis2012]
+:::
 
 </br>
 
-::: {style="font-size: 1.5em; color: #e28743;"}
-How would you describe the action(s) being taken in this statement?
+::: columns
+::: {.column width="60%"}
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="25%"}
+![](images/debug.png){.r-stretch}
+:::
 :::
 
 ## 
@@ -187,8 +110,80 @@ A framework for analyzing student's code [@schulte2008]
 
 ## 
 
+::: {style="font-size: 2em; color: #FFFFFF;"}
+How could this look?
+:::
+
+</br> 
+
+::: {.fragment .fade-in-then-semi-out}
+[Atoms]{style="color: #ed8402; font-size: 1.5em"}
+
+```
+with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))
+```
+<!-- - How is whitespace used? -->
+<!-- - What operation(s) does this statement carry out? -->
+<!-- - How is this statement related to the broader context of the program? -->
+:::
+
+</br> 
+
+::: {.fragment}
+[Block]{style="color: #34605f; font-size: 1.5em"}
+
+```
+anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
+summary(anterior)  
+with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))  
+abline(anterior)  
+plot(anterior)
+```
+:::
+
+## 
+
+[Relationships Between Blocks]{style="color: #D4D4D4; font-size: 1.5em"}
+
+</br>
+
+```
+anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
+summary(anterior)  
+with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))  
+abline(anterior)  
+plot(anterior)
+```
+</br>
+
+```
+posterior2 <- lm(ProximateAnalysisDataOutlier$PSUP ~ ProximateAnalysisDataOutlier$Lipid)
+summary(posterior2)
+with(ProximateAnalysisDataOutlier, plot(PSUP~Lipid, las=1, xlab = "Whole-body Lipid Content (%)", ylab = "UP Fatmeter Reading"))
+abline(posterior2)
+plot(posterior2)
+posterior2
+```
+
+##  {background-color="#B6CADA"}
+
+::: {style="font-size: 3em; color: #000000;"}
+How can this be used for learning trajectory research?
+:::
+
+
+##
+
+<!-- atom level analysis -->
+
+##
+
+<!-- block level analysis -->
+
+##
+
 ::: {style="font-size: 2.5em; color: #FFFFFF;"}
-Coding student's code
+Descriptive coding
 :::
 
 </br>
@@ -206,26 +201,10 @@ RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1]
 
 </br>
 
-::: columns
-::: {.column width="45%"}
-**Descriptive code**
+. . .
 
-::: {style="font-size: 0.75em;"}
 > "Filters a vector of values using extraction operator, based on an equality relation with a variable selected from dataframe using `$` operator"
-:::
-:::
 
-::: {.column width="5%"}
-:::
-
-::: {.column width="45%"}
-**In-vivo code**
-
-::: {style="font-size: 0.75em;"}
-> "Uses `[ ]` and `==` to filter vector, uses `$` to select variable"
-:::
-:::
-:::
 
 ## 
 
@@ -366,71 +345,6 @@ Practical considerations
 ## 
 
 ::: {style="font-size: 2em; color: #FFFFFF;"}
-How could this be used?
-:::
-
-::: columns
-::: {.column width="22%"}
-::: {style="font-size: 0.95em;"}
-**Concept dependence**
-:::
-
-::: {style="font-size: 0.65em;"}
-> How does a student's concept model of a dataset inform how they filter data?
-
-(atoms; program execution)
-:::
-:::
-
-::: {.column width="2%"}
-:::
-
-::: {.column width="22%"}
-::: {style="font-size: 0.95em;"}
-**Program environment**
-:::
-
-::: {style="font-size: 0.65em;"}
-> How do the visualizations produced by students who learn ggplot differ from those who learn "base" R?
-
-(blocks; program execution)
-:::
-:::
-
-::: {.column width="4%"}
-:::
-
-::: {.column width="22%"}
-::: {style="font-size: 0.95em;"}
-**Linguistic structure**
-:::
-
-::: {style="font-size: 0.65em;"}
-> How do students name objects they will use later?
-
-(relationships; text)
-:::
-:::
-
-::: {.column width="2%"}
-:::
-
-::: {.column width="22%"}
-::: {style="font-size: 0.95em;"}
-**Learning trajectory**
-:::
-
-::: {style="font-size: 0.65em;"}
-> How do students' exploratory data analyses change over the duration of a course?
-
-(macrostructure; function / purpose)
-:::
-:::
-:::
-
-## 
-
-::: {style="font-size: 2em; color: #FFFFFF;"}
 Why is this important for data science education?
 :::
 
@@ -450,13 +364,17 @@ How can we distinguish merely interesting learning from effective learning [@wig
 Questions?
 :::
 
-<!-- todo: include new image for questions -->
+::: columns
+::: {.column width="55%"}
 
-```{r}
-#| fig-align: center
-#| out-width: 50%
-#| eval: false
-knitr::include_graphics("images/conversation.jpg")
-```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="40%"}
+![](images/questions.png)
+:::
+:::
 
 ## References
