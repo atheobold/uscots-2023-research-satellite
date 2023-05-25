@@ -1,16 +1,25 @@
 ---
-title: "Coding Code: Investigating Student’s Data Science Skills with Qualitative Methods"
-author: "Allison Theobold"
 format: 
   revealjs:
+    slide-number: false
+    height: 900
+    width: 1600
     logo: images/cp_hex_logo.png
     theme: night
     embed-resources: true
-    standalone: true
     auto-stretch: false
-editor: visual
+editor: source
 bibliography: references.bib
 ---
+
+
+##  {background-image="images/code-backdrop.jpg" background-position="cover"}
+
+::: {style="font-size: 3.5em; color: #FFFFFF;"}
+**Coding Code: Investigating Student’s Data Science Skills with Qualitative Methods**
+:::
+
+##
 
 ::: {style="font-size: 3em; color: #FFFFFF;"}
 Today's layout
@@ -46,9 +55,53 @@ knitr::include_graphics("images/code-design.png")
 
 ## 
 
-::: {style="font-size: 3em; color: #FFFFFF;"}
+::: {style="font-size: 2.75em; color: #FFFFFF;"}
 What research has been done?
 :::
+
+A great deal of research has focused on what to teach in data science courses, but little focus on how students learn data science concepts.
+
+. . .
+
+</br>
+
+Thus far we have detailed...
+
+::: columns
+::: {.column width="45%"}
+-  concepts or competencies that ought to be included in data science programs
+
+- perspectives on when to teach data science
+
+- how to teach data science concepts
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+::: fragment
+- methods for integrating data science into the classroom
+
+- assorted topics to be considered in data science courses
+:::
+:::
+:::
+
+::: notes
+While these reports are useful, it is important to understand how these
+recommendations translate into student learning. Teaching data science
+effectively is more than identifying end goals and developing a novel curriculum. Effective teaching demands an understanding of the perspective of the learner and how they make sense of information and write computing code in the process of learning. 
+
+The discipline of data science education shares a great deal of similarities with that of CS education; namely, the important role students’ code plays in their learning. Thus, the discipline of data science education stands to learn from how CS education researchers investigate the student learning in the context of the code they produce. 
+:::
+
+##
+
+::: {style="font-size: 3em; color: #FFFFFF;"}
+Drawing on research in Computer Science Education
+:::
+
 
 ::: columns
 ::: {.column width="45%"}
@@ -76,13 +129,17 @@ knitr::include_graphics("images/code-review.png")
 ## 
 
 ::: {style="font-size: 2em; color: #FFFFFF;"}
-Pairing student code with debugging behavior [@lewis2012]
+The Importance of Students’ Attention to Program State [@lewis2012]
 :::
 
 </br>
 
 ::: columns
 ::: {.column width="60%"}
+
+- Attends to **both** the code produced by a student and their learning process 
+
+- Pairs a student's code with their debugging behavior side-by-side
 :::
 
 ::: {.column width="5%"}
@@ -93,13 +150,23 @@ Pairing student code with debugging behavior [@lewis2012]
 :::
 :::
 
+. . .
+
+</br>
+
+> These analyses of students’ code should not be few and far between. Students’ code poses a unique avenue for qualitative research in the teaching and learning of computing. 
+
+::: notes
+Paints a clear picture of both the bug in the student's code and the direction of their attention
+:::
+
 ## 
 
 ::: {style="font-size: 2em; color: #FFFFFF;"}
 A framework for analyzing student's code [@schulte2008]
 :::
 
-::: {style="font-size: 0.5em;"}
+::: {style="font-size: 0.75em;"}
 |                    | Text Surface                                                              | Program Execution                                                      | Function                                                                                   |
 |:------------------|------------------|------------------|------------------|
 | **Macrostructure** | Understanding the overall structure of the program                        | Understanding the "algorithm" of the program                           | Understanding the goal / purpose of the program (in its context)                           |
@@ -114,25 +181,28 @@ A framework for analyzing student's code [@schulte2008]
 How could this look?
 :::
 
-</br> 
+</br>
 
 ::: {.fragment .fade-in-then-semi-out}
 [Atoms]{style="color: #ed8402; font-size: 1.5em"}
 
-```
+```         
 with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))
 ```
+
 <!-- - How is whitespace used? -->
+
 <!-- - What operation(s) does this statement carry out? -->
+
 <!-- - How is this statement related to the broader context of the program? -->
 :::
 
-</br> 
+</br>
 
-::: {.fragment}
+::: fragment
 [Block]{style="color: #34605f; font-size: 1.5em"}
 
-```
+```         
 anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
 summary(anterior)  
 with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))  
@@ -147,16 +217,17 @@ plot(anterior)
 
 </br>
 
-```
+```         
 anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
 summary(anterior)  
 with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))  
 abline(anterior)  
 plot(anterior)
 ```
+
 </br>
 
-```
+```         
 posterior2 <- lm(ProximateAnalysisDataOutlier$PSUP ~ ProximateAnalysisDataOutlier$Lipid)
 summary(posterior2)
 with(ProximateAnalysisDataOutlier, plot(PSUP~Lipid, las=1, xlab = "Whole-body Lipid Content (%)", ylab = "UP Fatmeter Reading"))
@@ -171,16 +242,15 @@ posterior2
 How can this be used for learning trajectory research?
 :::
 
-
-##
+## 
 
 <!-- atom level analysis -->
 
-##
+## 
 
 <!-- block level analysis -->
 
-##
+## 
 
 ::: {style="font-size: 2.5em; color: #FFFFFF;"}
 Descriptive coding
@@ -204,7 +274,6 @@ RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1]
 . . .
 
 > "Filters a vector of values using extraction operator, based on an equality relation with a variable selected from dataframe using `$` operator"
-
 
 ## 
 
@@ -366,7 +435,6 @@ Questions?
 
 ::: columns
 ::: {.column width="55%"}
-
 :::
 
 ::: {.column width="5%"}
