@@ -1,0 +1,12 @@
+---
+title: "What data science skills are necessary for implementing statistics in ecological research?"
+subtitle: "A Cross-Case Comparison"
+format: pdf
+editor: visual
+---
+
+## Student A
+
+
+## Student B
+
