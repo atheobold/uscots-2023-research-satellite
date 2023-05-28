@@ -1,78 +1,3 @@
----
-title: "How does a student's data analysis process change over time?"
-subtitle: "A block-level analysis"
-format: docx
-editor: visual
-bibliography: references.bib
----
-
-## The Block Model [@schulte2008]
-
-|                    | Text Surface                                                              | Program Execution                                                      | Function                                                                                   |
-|:------------------|------------------|------------------|------------------|
-| **Macrostructure** | Understanding the overall structure of the program                        | Understanding the "algorithm" of the program                           | Understanding the goal / purpose of the program (in its context)                           |
-| **Relations**      | References between blocks, e.g., method calls, object creation            | Sequence of method calls, object sequence diagrams                     | Understanding how sub-goals are related to goals, how function is achieved by subfunctions |
-| **Blocks**         | Regions of interest (ROI) that syntactically or semantically build a unit | Operation of a block, a method, or a ROI (as a sequence of statements) | Function of a block, may be seen as a sub-goal                                             |
-| **Atoms**          | Language elements                                                         | Operation of a statement                                               | Function of a statement, only understandable in context                                    |
-
-## Time Point 1
-
-```
-#upper anterior measurement
-anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)
-summary(anterior)
-with(ProximateAnalysisData, plot(PSUA ~ Lipid, las = 1))
-abline(anterior)
-plot(anterior)
-
-posterior <- lm(ProximateAnalysisData$PSUP ~ ProximateAnalysisData$Lipid)
-summary(posterior)
-posterior
-with(ProximateAnalysisData, plot(PSUP ~ Lipid, las = 1))
-abline(posterior)
-plot(posterior)
-
-#OUTLIER REMOVED
-anterior2 <- lm(ProximateAnalysisDataOutlier$PSUA ~ ProximateAnalysisDataOutlier$Lipid)
-summary(anterior2)
-with(ProximateAnalysisDataOutlier, plot(PSUA ~ Lipid, las = 1,  xlab = "Whole-body Lipid Content (%)", ylab = "UA Fatmeter Reading"))
-abline(anterior2)
-plot(anterior2)
-anterior2
-
-posterior2 <- lm(ProximateAnalysisDataOutlier$PSUP ~ ProximateAnalysisDataOutlier$Lipid)
-summary(posterior2)
-with(ProximateAnalysisDataOutlier, plot(PSUP ~ Lipid, las = 1,  xlab = "Whole-body Lipid Content (%)", ylab = "UP Fatmeter Reading"))
-abline(posterior2)
-plot(posterior2)
-posterior2
-
-qt(.975,9)
-
-#upper Middle measurements only
-middle <- lm(ProximateAnalysisData$PSUM ~ ProximateAnalysisData$Lipid)
-summary(middle)
-with(ProximateAnalysisData, plot(PSUM ~ Lipid, las = 1, xlab = "Whole-body Lipid Content (%)", ylab = "UM Fatmeter Reading"))
-abline(middle)
-plot(middle)
-middle
-
-middleLog <- lm(ProximateAnalysisData$logPSUM ~ ProximateAnalysisData$Lipid)
-summary(middleLog)
-with(ProximateAnalysisData, plot(logPSUM ~ Lipid, las = 1))
-abline(middleLog)
-plot(middle)
-with(ProximateAnalysisData, plot(Lipid ~ logPSUM, las = 1))
-
-#Means and sd of data
-mean(ProximateAnalysisData$Lipid)
-sd(ProximateAnalysisData$Lipid)
-
-```
-
-## Time Point 2
-
-```
 #Preliminary data for Fatmeter Calibration
 #-----------------------------------------------
 
@@ -186,4 +111,5 @@ expMiddle2E
 with(ProximateAnalysisDataOutlier, plot(PSUM ~ log(Energy), las = 1))
 plot(middle2E)
 
-```
+
+
