@@ -33,7 +33,7 @@ Today's layout
 
 ##  {background-color="#B6CADA"}
 
-::: {style="font-size: 5em; color: #000000;"}
+::: {style="font-size: 4em; color: #000000;"}
 Investigating student learning through code
 :::
 
@@ -175,30 +175,62 @@ A framework for analyzing student's code [@schulte2008]
 
 ## 
 
-::: {style="font-size: 2em; color: #FFFFFF;"}
-How could this look?
+::: {style="font-size: 3em; color: #ed8402"}
+Atom
 :::
 
-</br>
+::: {style="font-size: 2em;"}
 
-::: {.fragment .fade-in-then-semi-out}
-[Atoms]{style="color: #ed8402; font-size: 1.5em"}
-
-```         
+```
 with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))
 ```
-
-<!-- - How is whitespace used? -->
-
-<!-- - What operation(s) does this statement carry out? -->
-
-<!-- - How is this statement related to the broader context of the program? -->
 :::
 
 </br>
 
-::: fragment
-[Block]{style="color: #34605f; font-size: 1.5em"}
+::: columns
+::: {.column width="30%"}
+::: {.fragment .fade-in-then-semi-out}
+**Text Surface** 
+
+> How is whitespace being used?
+
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="30%"}
+::: {.fragment .fade-in-then-semi-out}
+**Program Execution**
+
+> What operation(s) does this statement carry out?
+
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="30%"}
+::: {.fragment}
+**Function**
+
+> How is this statement related to the broader context of the program?
+
+:::
+:::
+:::
+
+
+##
+
+::: {style="font-size: 3em; color: #76b5c5"}
+Block
+:::
+
+::: {style="font-size: 2em;"}
 
 ```         
 anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
@@ -208,12 +240,42 @@ abline(anterior)
 plot(anterior)
 ```
 :::
+
+</br>
+
+::: columns
+::: {.column width="40%"}
+::: {.fragment .fade-in-then-semi-out}
+**Program Execution**
+
+> What operation(s) does this block carry out?
+
+:::
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+**Function**
+
+> How is this block related to the broader context of the program?
+
+:::
+:::
+:::
+
 
 ## 
 
-[Relationships Between Blocks]{style="color: #D4D4D4; font-size: 1.5em"}
+::: {style="font-size: 2.5em; color: #D4D4D4;"}
+Relationships Between Blocks
+:::
 
 </br>
+
+::: {style="font-size: 1.5em;"}
 
 ```         
 anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
@@ -222,8 +284,11 @@ with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))
 abline(anterior)  
 plot(anterior)
 ```
+:::
 
 </br>
+
+::: {style="font-size: 1.5em;"}
 
 ```         
 posterior2 <- lm(ProximateAnalysisDataOutlier$PSUP ~ ProximateAnalysisDataOutlier$Lipid)
@@ -233,39 +298,70 @@ abline(posterior2)
 plot(posterior2)
 posterior2
 ```
+:::
+
+::: notes
+- Text surface: references between blocks
+- Execution: Sequences of steps
+:::
 
 ##  {background-color="#B6CADA"}
 
-::: {style="font-size: 3em; color: #000000;"}
+::: {style="font-size: 4em;"}
 How can this be used for learning trajectory research?
 :::
 
 ## 
 
-<!-- atom level analysis -->
+::: {style="font-size: 3em; color: #ed8402"}
+Atom-level Analysis
+:::
+
+</br>
+
+::: {style="font-size: 2em;"}
+> "How does a student's use of code comments (to structure their analysis) change over time?"
+:::
 
 ## 
 
-<!-- block level analysis -->
+::: {style="font-size: 3em; color: #76b5c5"}
+Block-level Analysis
+:::
+
+</br>
+
+::: {style="font-size: 2em;"}
+> "How does a student's data analysis process change over time?"
+:::
+
 
 ## 
 
-::: {style="font-size: 2.5em; color: #FFFFFF;"}
+::: {style="font-size: 2.5em;"}
+Some tools to guide you
+:::
+
+</br>
+
+. . .
+
+:::{style="font-size: 2em; color: #ed8402"}
 Descriptive coding
 :::
 
 </br>
 
-::: {style="font-size: 1.25em;"}
+::: {style="font-size: 1.5em;"}
 ```{r}
 #| eval: false
 #| echo: true
 #| code-line-numbers: false
+
 RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1]
+
 ```
 :::
-
-. . .
 
 </br>
 
@@ -273,155 +369,63 @@ RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 1]
 
 > "Filters a vector of values using extraction operator, based on an equality relation with a variable selected from dataframe using `$` operator"
 
-## 
-
-::: {style="font-size: 2em; color: #FFFFFF;"}
-Uncovering emergent themes
+::: notes
+There are over 25 different methods for creating qualitative codes, so I will highlight a few that I believe are relevant to these analyses.
 :::
 
-::: {style="font-size: 0.75em;"}
+## 
+
+::: {style="font-size: 2em; color: #76b5c5;"}
+Process coding
+:::
+
+> uses gerunds ("-ing" words) to connote action in the data [@saldana]
+
+. . .
+
+</br>
+
+::: {style="font-size: 1.5em;"}
 ```{r}
 #| eval: false
 #| echo: true
 #| code-line-numbers: false
 
-linearAnterior <- lm(PADataNoOutlier$Lipid ~ PADataNoOutlier$PSUA)
+anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
+summary(anterior)  
+with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))  
+abline(anterior)  
+plot(anterior)
 
-early <- subset(RPMA2Growth, StockYear < 2006)	
-
-Weight5 <- mean(RPMA2GrowthSub$Weight[RPMA2GrowthSub$Age == 5], na.rm = TRUE)
-
-gas <- gas[!(substr(gas$sampleID,3,3) %in% c("b","c")), ]	
-
-obsD <- subset(gas, gas$carboy == "D")$N15_N2_Ar
-
-lowerCIBound <- pMat[1:mlleIndex,1][which.min(abs(mlleCI+likelihoods[1:mlleIndex]))]
 ```
 :::
 
-<!-- </br> -->
-
-::: columns
-::: {.column width="50%"}
-**Data wrangling**
-
-::: {style="font-size: 0.65em;"}
-> Statements of code whose purpose is to prepare a dataset for analysis and / or visualization
-:::
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="45%"}
-::: {style="font-size: 0.75em;"}
-**Sub-themes**
-
--   selecting variables
--   filtering observations
--   mutating variables
-:::
-:::
-:::
-
-## 
-
-::: {style="font-size: 2em; color: #FFFFFF;"}
-An alternative direction
-:::
-
 </br>
 
-::: columns
-::: {.column width="20%"}
-::: {style="font-size: 1.5em; color: #FFFFFF;"}
-Process coding:
-:::
-:::
+> "Fitting a linear regression, inspecting regression summary, plotting scatterplot of variables in regression, adding a regression line to the plot, visualizing model diagnostics"
 
-::: {.column width="5%"}
-:::
 
-::: {.column width="75%"}
-::: {style="font-size: 0.75em; color: #FFFFFF;"}
-> uses gerunds ("-ing" words) to connote action in the data [@saldana]
-:::
-:::
-:::
-
-. . .
-
-</br>
-
-::: {style="font-size: 0.75em;"}
+::: notes
 -   Particularly relevant to describing the processes of human actions
     -   can be "strategic, routine, random, novel, automatic, and / or thoughtful" [@corbin, p. 247].
 -   Can be intertwined with time, such that actions can emerge, change, or occur in particular sequences.
 :::
 
-## 
+##  {background-color="#B6CADA"}
 
-::: {style="font-size: 2em; color: #FFFFFF;"}
-Practical considerations
+::: {.r-fit-text}
+Let's give it a try!
 :::
-
-::: columns
-::: {.column width="45%"}
-**How much code should I collect?**
-
-::: {style="font-size: 0.75em;"}
-::: incremental
--   Driven by the research question!
-    -   Amount of each student's code
-    -   Number of students
-:::
-:::
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="45%"}
-**How do readers trust my analysis?**
-
-::: {style="font-size: 0.75em;"}
-::: incremental
--   Trust comes from:
-
-    -   confirmability
-    -   reliability
-    -   credibility
-    -   transferability
-:::
-:::
-:::
-:::
-
-. . .
-
-</br> Excellent resources: Creswell & Poth [-@creswell]; Merriam & Tisdell [-@merriam-tisdell]; Miles et al. [-@miles]
-
-<!-- researcher bias -->
-
-<!-- stable across researchers -->
-
-<!-- findings paint authentic portrait of data -->
-
-<!-- conclusions can be transferred to other contexts  -->
 
 ## 
 
-::: {style="font-size: 2em; color: #FFFFFF;"}
+::: {style="font-size: 3em; color: #FFFFFF;"}
 Why is this important for data science education?
 :::
 
-Theobold et al. [-@theobold-jsdse]
-
-. . .
-
 </br>
 
-::: {style="font-size: 1.5em; color: #e28743;"}
+::: {style="font-size: 2em; color: #e28743;"}
 How can we distinguish merely interesting learning from effective learning [@wiggins]?
 :::
 
@@ -442,5 +446,47 @@ Questions?
 ![](images/questions.png)
 :::
 :::
+
+##
+
+::: {style="font-size: 2em; color: #FFFFFF;"}
+Practical considerations
+:::
+
+::: columns
+::: {.column width="45%"}
+**How much code should I collect?**
+
+-   Driven by the research question!
+    -   Amount of each student's code
+    -   Number of students
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+**How do readers trust my analysis?**
+
+-   Trust comes from:
+  * confirmability
+  * reliability
+  * credibility
+  * transferability
+:::
+:::
+
+</br> Excellent resources: Creswell & Poth [-@creswell]; Merriam & Tisdell [-@merriam-tisdell]; Miles et al. [-@miles]
+
+::: notes
+researcher bias
+
+stable across researchers
+
+findings paint authentic portrait of data
+
+conclusions can be transferred to other contexts
+:::
+
 
 ## References
