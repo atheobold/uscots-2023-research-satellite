@@ -5,7 +5,7 @@ format:
     height: 900
     width: 1600
     logo: images/cp_hex_logo.png
-    theme: night
+    theme: [night, style.scss]
     embed-resources: true
     auto-stretch: false
 editor: source
