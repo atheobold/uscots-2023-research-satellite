@@ -13,7 +13,7 @@ bibliography: references.bib
 ---
 
 
-##  {background-image="images/code-backdrop.jpg" background-position="cover"}
+##  {background-image="images/code-backdrop.jpg" background-position="cover" aria-label="A screen covered in computer programming code."}
 
 ::: {style="font-size: 3.5em; color: #FFFFFF;"}
 **Coding Code: Investigating Student’s Data Science Skills with Qualitative Methods**
@@ -26,6 +26,14 @@ Today's layout
 :::
 
 </br>
+
+::: midi
+
+1. (Briefly) Outline research on student learning through code
+2. Describe a framework for qualitatively analyzing student's computing code
+3. Motivate how this framework could be used for learning trajectory research
+4. Set you free to perform a data analysis! 
+:::
 
 <!-- todo: outline -->
 
@@ -46,6 +54,8 @@ Investigating student learning through code
 
 ::: {.column width="25%"}
 ```{r}
+#| fig-alt: "A computer screen with an image of source code"
+
 knitr::include_graphics("images/code-design.png")
 ```
 :::
@@ -57,7 +67,7 @@ knitr::include_graphics("images/code-design.png")
 What research has been done?
 :::
 
-A great deal of research has focused on what to teach in data science courses, but little focus on how students learn data science concepts.
+A great deal of research has focused on what to teach in data science courses, but little focus on *how* students learn data science concepts.
 
 . . .
 
@@ -100,12 +110,14 @@ The discipline of data science education shares a great deal of similarities wit
 Drawing on research in Computer Science Education
 :::
 
+</br>
 
 ::: columns
 ::: {.column width="45%"}
 ::: {.fragment .fade-in-then-out}
 ```{r}
 #| out-width: 65%
+#| fig-alt: "An image of a bluebird."
 knitr::include_graphics("images/bluej-icon.png")
 ```
 :::
@@ -118,6 +130,7 @@ knitr::include_graphics("images/bluej-icon.png")
 ::: fragment
 ```{r}
 #| out-width: 50%
+#| fig-alt: "An image of a student thinking about computer code."
 knitr::include_graphics("images/code-review.png")
 ```
 :::
@@ -144,7 +157,10 @@ The Importance of Students’ Attention to Program State [@lewis2012]
 :::
 
 ::: {.column width="25%"}
-![](images/debug.png){.r-stretch}
+
+:::{.r-stretch}
+![](images/debug.png){fig-alt="A student looking sad while typing on a computer, the image of a bug over the top of their code is previewed above their head."}
+:::
 :::
 :::
 
@@ -175,11 +191,11 @@ A framework for analyzing student's code [@schulte2008]
 
 ## 
 
-::: {style="font-size: 3em; color: #ed8402"}
+::: {style="font-size: 2.5em; color: #ed8402"}
 Atom
 :::
 
-::: {style="font-size: 2em;"}
+::: {style="font-size: 1.75em;"}
 
 ```
 with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))
@@ -226,11 +242,11 @@ with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))
 
 ##
 
-::: {style="font-size: 3em; color: #76b5c5"}
+::: {style="font-size: 2.5em; color: #76b5c5"}
 Block
 :::
 
-::: {style="font-size: 1.5em;"}
+::: {style="font-size: 1.25em;"}
 
 ```         
 anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
@@ -275,8 +291,6 @@ Relationships Between Blocks
 
 </br>
 
-::: {style="font-size: 1.5em;"}
-
 ```         
 anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
 summary(anterior)  
@@ -284,11 +298,8 @@ with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))
 abline(anterior)  
 plot(anterior)
 ```
-:::
 
 </br>
-
-::: {style="font-size: 1.5em;"}
 
 ```         
 posterior2 <- lm(ProximateAnalysisDataOutlier$PSUP ~ ProximateAnalysisDataOutlier$Lipid)
@@ -298,7 +309,6 @@ abline(posterior2)
 plot(posterior2)
 posterior2
 ```
-:::
 
 ::: notes
 - Text surface: references between blocks
@@ -443,7 +453,7 @@ Questions?
 :::
 
 ::: {.column width="40%"}
-![](images/questions.png)
+![](images/questions.png){fig-alt="An image with two thought bubbles labeled question and answer."}
 :::
 :::
 
