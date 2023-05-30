@@ -230,7 +230,7 @@ with(ProximateAnalysisData, plot(PSUA~Lipid, las=1))
 Block
 :::
 
-::: {style="font-size: 2em;"}
+::: {style="font-size: 1.5em;"}
 
 ```         
 anterior <- lm(ProximateAnalysisData$PSUA~ProximateAnalysisData$Lipid)  
