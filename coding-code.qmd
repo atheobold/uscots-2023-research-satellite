@@ -35,9 +35,11 @@ Today's layout
 4. Set you free to perform a data analysis! 
 :::
 
-<!-- todo: outline -->
+</br>
 
-<center><link to slides></center>
+::: large
+Slides: [bit.ly/uscots-coding-code](https://bit.ly/uscots-coding-code)
+:::
 
 ##  {background-color="#B6CADA"}
 
