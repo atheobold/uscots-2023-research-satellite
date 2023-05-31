@@ -425,10 +425,23 @@ plot(anterior)
 
 ##  {background-color="#B6CADA"}
 
-::: {.r-fit-text}
+::: larger
 Let's give it a try!
 :::
 
+</br>
+
+::: larger
+[bit.ly/coding-code-activity](https://bit.ly/coding-code-activity)
+:::
+
+:::{.columns}
+:::{.column width="40%"}
+:::
+:::{.column width="60%"}
+![](images/activity-qr-code.png)
+:::
+:::
 ## 
 
 ::: {style="font-size: 3em; color: #FFFFFF;"}
