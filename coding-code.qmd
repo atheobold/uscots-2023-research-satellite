@@ -397,7 +397,6 @@ Process coding
 
 </br>
 
-::: {style="font-size: 1.5em;"}
 ```{r}
 #| eval: false
 #| echo: true
@@ -410,7 +409,6 @@ abline(anterior)
 plot(anterior)
 
 ```
-:::
 
 </br>
 
